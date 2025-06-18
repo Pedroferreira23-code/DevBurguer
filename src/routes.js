@@ -1,9 +1,14 @@
 import { Router } from "express";
+import UserController from "./app/controllers/UserController";
+import SessionController from "./app/controllers/SessionController";
+
+
 
 const routes = new Router();
 
-routes.get("/", (require, response) => {
-	return response.status(200).json({ menssage: "hellow word!" });
-});
+routes.post("/users", UserController.store);
+
+routes.post("/session", SessionController.store);
+	
 
 export default routes;
